@@ -1,10 +1,13 @@
 package com.livraison.projet.RestController;
 
 import com.livraison.projet.Entities.Admin;
+import com.livraison.projet.Entities.AffectationCommande;
 import com.livraison.projet.Entities.Livreur;
 import com.livraison.projet.Repository.AdminRepository;
 import com.livraison.projet.Repository.LivreurRepository;
+import com.livraison.projet.Services.AffectationLivraisonService;
 import com.livraison.projet.Services.LivreurService;
+import com.livraison.projet.beans.AffectationCommandeDto;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +58,9 @@ public class LivreurRestController {
 
     @Autowired
     private LivreurRepository livreurRepository;
+
+    @Autowired
+    private AffectationLivraisonService affectationLivraisonService;
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     @PostMapping(path = "registerLivreur")
@@ -105,5 +111,12 @@ public class LivreurRestController {
         }
     }
 
+    @GetMapping("mon-list-a-livrer/{id}")
+    public List<AffectationCommande> findAllListALivrerByIdLivreur(@PathVariable Long id)
+    {
+        System.out.println(id);
+        return  affectationLivraisonService.findAllByLivreurId(id);
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package beans;
+package com.livraison.projet.beans;
 
 
 import jakarta.persistence.Entity;
@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -18,10 +18,10 @@ import lombok.Setter;
 public class AffectationCommandeDto {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private  Long id;
+    private LivraisonDto livraisonDto;
     private LivreurDto livreurDto;
-    private CommandeDto commandeDto;
+
 
 }

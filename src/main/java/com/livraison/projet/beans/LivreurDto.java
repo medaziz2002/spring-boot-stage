@@ -1,4 +1,4 @@
-package beans;
+package com.livraison.projet.beans;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,4 +18,6 @@ public class LivreurDto {
     private String email;
     private String numtel;
     private String mdp;
+
+    private boolean isLivreur;
 }

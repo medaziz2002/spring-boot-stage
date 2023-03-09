@@ -1,7 +1,8 @@
 package com.livraison.projet.Services;
 
-import com.livraison.projet.Entities.Commande;
 
+import com.livraison.projet.Entities.Commande;
+import com.livraison.projet.beans.LivraisonDto;
 
 
 import java.util.List;
@@ -15,4 +16,8 @@ public interface CommandeService {
     void supprimerById(Long id);
     Optional<Commande> getCommandeById(Long id);
 
+    LivraisonDto commandeToCommandeDto(final Commande commande, LivraisonDto livraisonDto);
+
+
+    List<Commande>afficherListLivraison();
 }

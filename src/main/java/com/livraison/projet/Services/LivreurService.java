@@ -1,6 +1,6 @@
 package com.livraison.projet.Services;
 
-import com.livraison.projet.Entities.Admin;
+import com.livraison.projet.beans.LivreurDto;
 import com.livraison.projet.Entities.Livreur;
 
 
@@ -19,4 +19,5 @@ public interface LivreurService {
     void supprimerById(Long id);
 
     Optional<Livreur> getLivreurById(Long id);
+    LivreurDto livreurToLivreurDto(final Livreur livreur, final LivreurDto livreurDto);
 }

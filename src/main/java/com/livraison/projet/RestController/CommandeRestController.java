@@ -2,6 +2,7 @@ package com.livraison.projet.RestController;
 
 import com.livraison.projet.Entities.Admin;
 import com.livraison.projet.Entities.Commande;
+import com.livraison.projet.Entities.Livraison;
 import com.livraison.projet.Services.CommandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -53,5 +54,9 @@ public class CommandeRestController {
 
 
 
-
+    @GetMapping("/not-livred")
+    public List<Commande> afficherLivraison()
+    {
+        return commandeService.afficherListLivraison();
+    }
 }

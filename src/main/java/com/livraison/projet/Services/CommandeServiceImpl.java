@@ -1,10 +1,12 @@
 package com.livraison.projet.Services;
 
+
 import com.livraison.projet.Entities.Commande;
 
 import com.livraison.projet.Repository.CommandeRepository;
 
 
+import com.livraison.projet.beans.LivraisonDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +18,8 @@ public class CommandeServiceImpl implements CommandeService {
 
     @Autowired
     CommandeRepository commandeRepository;
-
-
+    @Autowired
+    LivreurService livreurService;
 
 
     @Override
@@ -50,5 +52,20 @@ public class CommandeServiceImpl implements CommandeService {
         return commandeRepository.findById(id);
     }
 
+    @Override
+    public LivraisonDto commandeToCommandeDto(Commande commande, LivraisonDto livraisonDto) {
+        if (commande != null) {
+            livraisonDto.setId(commande.getId());
+          // livraisonDto.setCommande(commande.getCommande());
+            livraisonDto.setLivred(livraisonDto.isLivred());
 
+            return livraisonDto;
+        } else
+            return null;
+    }
+
+    @Override
+    public List<Commande> afficherListLivraison() {
+        return commandeRepository.findAll();
+    }
 }

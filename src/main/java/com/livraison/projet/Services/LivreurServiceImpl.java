@@ -1,6 +1,6 @@
 package com.livraison.projet.Services;
 
-import com.livraison.projet.Entities.Admin;
+import com.livraison.projet.beans.LivreurDto;
 import com.livraison.projet.Entities.Livreur;
 import com.livraison.projet.Repository.LivreurRepository;
 
@@ -45,5 +45,22 @@ public class LivreurServiceImpl implements LivreurService {
        return livreurRepository.findById(id);
     }
 
+    @Override
+    public LivreurDto livreurToLivreurDto(Livreur livreur, LivreurDto livreurDto) {
+        if(livreur==null)
+        {
+            return null;
+        }else
+        {
+            livreurDto.setEmail(livreur.getEmail());
+            livreurDto.setId(livreur.getId());
+            livreurDto.setLivreur(livreur.isLivreur());
+            livreurDto.setNom(livreur.getNom());
+            livreurDto.setNumtel(livreur.getNumtel());
+            livreurDto.setPrenom(livreur.getPrenom());
 
+            return livreurDto;
+        }
+
+    }
 }

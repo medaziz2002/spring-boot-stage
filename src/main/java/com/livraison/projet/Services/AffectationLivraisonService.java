@@ -1,17 +1,20 @@
 package com.livraison.projet.Services;
 
-import beans.AffectationCommande;
-import beans.AffectationCommandeDto;
-import beans.AffectationCommandeLRq;
+
+import com.livraison.projet.Entities.AffectationCommande;
+import com.livraison.projet.beans.AffectationCommandeDto;
+import com.livraison.projet.beans.AffectationCommandeLRq;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface AffectationCommandeService {
+public interface AffectationLivraisonService {
 
     AffectationCommandeDto affectationCommandeToAffectationCommandeDto(final AffectationCommande affectationCommande, final AffectationCommandeDto affectationCommandeDto);
-    List<AffectationCommandeDto> findAllByLivreurId(Long id);
+   List<AffectationCommande> findAllByLivreurId(Long id);
     ResponseEntity<?> addAffect(AffectationCommandeLRq affictationCommandeLRq );
+
 
 
 }

@@ -1,12 +1,23 @@
 package com.livraison.projet.Services;
 
-import com.livraison.projet.Entities.Contact;
+import com.livraison.projet.Entities.Commande;
+import com.livraison.projet.Entities.Livraison;
+import com.livraison.projet.beans.CommandeDto;
+import com.livraison.projet.beans.LivraisonDto;
+
+import java.util.List;
 
 public interface LivraisonService {
 
+    Livraison confirmer(Long id);
 
-    void ajouterLivraison1(Long id1);
+    List<CommandeDto> listeCommandeNonLivred();
 
-   void ajouterLivraison2(Long id2);
+    CommandeDto commandeToCommandeDto(final Livraison livraison, CommandeDto commandeDto);
+
+
+    LivraisonDto livraisonToLivraisonDto(final Livraison livraison,final LivraisonDto livraisonDto);
+
+
 
 }

@@ -1,6 +1,7 @@
 package com.livraison.projet.Entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +28,9 @@ public class Livreur {
     private String numtel;
     private String mdp;
 
+
+    @Column(columnDefinition = "tinyint(1) default 1")
+    private boolean isLivreur=true;
 
 
 }
